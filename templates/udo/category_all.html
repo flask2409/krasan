@@ -1,0 +1,57 @@
+{% extends 'loyalt.html' %}
+{% load mptt_tags %}
+
+{% block content %}
+
+<div class="banner" style="background-image: url({{MEDIA_URL}}{{category.image}})"></div>
+<div class="content__title btcf">
+   <div class="container">
+      <ol class="breadcrump">
+         <li><a href="">Главная</a></li>
+         <li class="active">Закупка семян</li>
+      </ol>
+      <h1 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+         Реализация семян   
+      </h1>
+   </div>
+</div>
+<div class="container">
+   <div class="product-table__wrapper wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+   <h3></h3>
+   <ul>
+    {% recursetree categories %}
+        <li id="category";">
+            <a href="{% url 'category' id=node.id %}">{{ node.name }}</a>
+            {% if not node.is_leaf_node %}
+                <ul class="#category">
+                    <a href="{% url 'category' id=node.id %}">{{ children }}</a>
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+   </div>
+</div>
+<div class="comment__wrapper" id="enquiryBlock">
+   <div class="container btcf">
+      <h2>Оставить заявку</h2>
+      <div class="border-top">
+         <form class="js-enquiry-form ">
+            <div class="comment_input">
+               <input data-parsley-errors-messages-disabled required type="text" name="name" placeholder="Имя">
+               <input data-parsley-errors-messages-disabled required type="email" name="email" placeholder="e-mail">
+               <input data-parsley-errors-messages-disabled required type="tel" name="phone" placeholder="Телефон">
+               <input data-parsley-errors-messages-disabled required type="text" name="topic" placeholder="Тема">
+            </div>
+            <div class="comment_textarea">
+               <textarea data-parsley-errors-messages-disabled required name="message" id="" cols="30" placeholder="Комментарий" style="min-height: 164px;"></textarea>
+               <a href="" class="header__contact-us js-send-enquiry-btn btn_send_enquiry">Отправить</a>
+            </div>
+         </form>
+         <div class="js-enquiry-message" style="display: none;">Спаcибо за заявку</div>
+      </div>
+   </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'loyalt.html' %}
+{% load staticfiles %}
+{% block content %}
+ <div class="banner" style="background-image: url({{MEDIA_URL}}{{product.image}})"></div>
+      <div class="content__title btcf">
+         <div class="container">
+            <ol class="breadcrump">
+               <li><a href="{% url 'home' %}">Главная</a></li>
+               <li>
+                  <a href="">{{semena.name}}</a>
+               </li>
+            </ol>
+            <h1 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+               {{semena.name}}    
+            </h1>
+         </div>
+      </div>
+      <div class="container">
+         <div class="services__item btcf">
+            <div class="services__text wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+               <div class="services__img wow fadeInUp" style="background-image: url({{MEDIA_URL}}{{product.image}})" data-wow-duration="1s" data-wow-delay=".4s">
+                  {{semena.name}}   
+               </div>
+               <h1>{{semena.name}}</h1>
+               <p>{{semena.text}}</p>
+               <p><a href="{{MEDIA_URL}}{{product.file}}" style="width: 20%; float:right;" class="btn js-scroll">Скачать прайс</a></p>
+            </div>
+         </div>
+      </div>
+{% endblock %}

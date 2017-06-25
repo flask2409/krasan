@@ -1,0 +1,212 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru-Ru">
+   <head>
+      <meta charset="UTF-8">
+      <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+      <title>Заголовок</title>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic,700italic,700,800,800italic,300italic,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{% static 'style/jquery.fancybox.css' %}">
+      <link rel="stylesheet" href="{% static 'style/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'style/style.css' %}">
+   </head>
+   <body class="main" style="background-image: url({% static 'img/main_banner.jpg' %})">
+      <header class="btcf">
+         <div class="container">
+           <a href="" style="float: right;" class="header__contact-us header__shop-link">скачать прайс</a>
+            <div class="header-actions btcf">
+               <div class="header__phone_wrapper">
+                  <img src="{% static '/img/phone_icon.png' %}" alt="">
+                  <a href="callto:+78007757764" class="header__phone">+ 7(951)343-08-22</a>
+                  <a href="+74957777764" class="header__phone">+ 7(951)343-08-22</a>
+               </div>
+               <a class="header__contact-us js-btn-contact"  style="float: left;">Связаться с нами</a>
+            </div>
+            <div class="popup_contact js-popup-contact">
+               <form action="" id="callbackForm">
+                  <p class="bold">Обратный звонок</p>
+                  <p>Введите свой номер телефона, наш менеджер свяжется с вами</p>
+                  <input data-parsley-errors-messages-disabled required type="text" name="phone" placeholder="Телефон" />
+                  <a class="header__contact-us js-callback-send-btn" style="margin-top: 10px;">Отправить</a>
+               </form>
+               <div class="js-enquiry-message" style="display: none; margin-top: 13%; text-align: center;">Спаcибо за заявку</div>
+            </div>
+         </div>
+      </header>
+      <nav class="btcf main_page">
+         <div class="container">
+            <a href="" class="main_logo"><img src="{% static '/img/logo.png' %}" alt=""></a>
+            <ul class="nav">
+            <li class="nav_item js-nav-item">
+               <a href="#" class="nav__item_link ">Главная</a>
+            </li>
+            {% for page  in pages_all %}
+               <li class="nav_item js-nav-item">
+                  <a href="{% url 'pages' id=page.id %}" class="nav__item_link ">{{ page.title }}</a>
+               </li>
+            {% endfor %}
+         </div>
+      </nav>
+      <div class="services__wrapper">
+         <div class="container" style="width:900px;">
+       
+            <div class="box box-4">
+               <a href="{% url 'semena_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{categoryi.image}})">
+               <span>Семена</span>
+               </a>
+            </div>
+             <div class="box box-4">
+               <a href="{% url 'pest_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <span>Пестециды</span>
+               </a>
+            </div>
+            <div class="box box-4">
+               <a href="{% url 'udo_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <span>Удобрения</span>
+               </a>
+            </div>
+            <div class="box box-4">
+               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <span>Пестнциды</span>
+               </a>
+            </div>
+            <div class="box box-4">
+               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <span>Пестнциды</span>
+               </a>
+            </div>
+            <div class="box box-4">
+               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <span>Пестнциды</span>
+               </a>
+            </div>
+           
+           
+         </div>
+      </div>
+      <!-- 
+         <div class="services__wrapper">
+           <div class="container">
+                         <div class="box">
+             <a href="" 
+                class="services_item serv-"
+                    data-order=""
+                style="background-image: url()">        </a>
+         </div>
+                     <div class="box">
+           <a href="" 
+              class="services_item serv-"
+              data-order=""
+              style="background-image: url()">     </a>
+         </div>
+                           </div>
+         </div>
+         -->
+      {% block content %}
+      {% endblock %}
+      <footer style="padding-bottom:0;">
+         <div class="container btcf">
+         <div class="border-bottom">
+            <ul class="nav">
+               <li class="nav_item js-nav-item">
+                  <a href="#" class="nav__item_link active">Главная</a>
+               </li>
+               <li class="nav_item js-nav-item">
+                  <a href="#" class="nav__item_link ">О компании</a>
+                  <ul class="sub-nav  js-sub-menu js-sub-menu-footer" style="display:none;">
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Партнеры</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Отзывы</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Новости</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Карьера</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Социальная ответственность</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Производство</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Контроль качества</a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="nav_item js-nav-item">
+                  <a href="#" class="nav__item_link ">Услуги</a>
+                  <ul class="sub-nav  js-sub-menu js-sub-menu-footer" style="display:none;">
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Удобрение</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Защита растений</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Хранение</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Логистика</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Смешивание семян</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Очистка семян</a>
+                     </li>
+                     <li class="sub-nav__item" >
+                        <a class="sub-nav__link" href="#">Посевной материал</a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="nav_item js-nav-item">
+                  <a href="#" class="nav__item_link ">Реализация семян</a>
+               </li>
+               <li class="nav_item js-nav-item">
+                  <a href="#" class="nav__item_link ">Контакты</a>
+               </li>
+            </ul>
+            <div class="header__phone_wrapper">
+               <a href="callto:7(951)343-08-22" class="header__phone">7(951)343-08-22</a>
+               <a href="callto:7(951)343-08-22" class="header__phone">7(951)343-08-22</a>
+            </div>
+         </div>
+         <p class="copyright">© 2017 ООО Красан</p>
+         <div class="social_wrapper">
+            <noindex>
+               <a href="https://ru.pinterest.com/" class="social__item social_1" target="_blank" rel="nofollow"><img src="static/img/social_1.png" alt=""></a>
+               <a href="https://www.facebook.com/" class="social__item social_2" target="_blank" rel="nofollow"><img src="static/img/social_2.png" alt=""></a>
+               <a href="https://twitter.com/" class="social__item social_3" target="_blank" rel="nofollow"><img src="static/img/social_3.png" alt=""></a>
+               <a href="https://plus.google.com/" class="social__item social_4" target="_blank" rel="nofollow"><img src="static/img/social_4.png" alt=""></a>
+            </noindex>
+         </div>
+      </footer>
+      <script src="{% static 'js/jquery.shapelib.js' %}"></script>
+      <script src="{% static 'js/wow.min.js' %}"></script>
+      <script src="{% static 'js/jquery-1.10.1.min.js'%}"></script>
+      <script src="{% static 'js/jquery.mousewheel-3.0.6.pack.js' %}"></script>
+      <script src="{% static 'js/jquery.fancybox.js'%}"></script>
+      <script src="{% static 'js/parsley.min.js'%}"></script>
+      <script src="{% static 'js/jquery.smooth-scroll.min.js'%}"></script>
+      <script src="{% static 'js/script.js'%}"></script>
+      <script>
+         $(document).ready(function(){
+          $('.text-hide-button').click(function () {
+            $('.text-hide').toggleClass('text-show');
+         });
+         });
+      </script>
+      <script type="text/javascript">
+         $(document).ready(function()
+         {
+          
+          drawCircle('.box', 100, 250, 140, 360, 270);
+         
+         });
+      </script>
+   </body>
+</html>
