@@ -4,6 +4,7 @@ from django.db import models
 
 class Category(models.Model):
 	name = models.CharField(max_length=40, verbose_name = "Название категории")
+	price = models.FileField(upload_to="media/category", verbose_name="Прайс категории")
 
 
 	def __str__(self):
