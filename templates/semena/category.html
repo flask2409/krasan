@@ -1,13 +1,12 @@
 {% extends 'loyalt.html' %}
-
-
+{% load staticfiles %}
 {% block content %}
 
-<div class="banner" style="background-image: url({{MEDIA_URL}}{{category.image}})"></div>
+<div class="banner" style="background-image: url({% static 'img/baner.jpg' %})"></div>
 <div class="content__title btcf">
    <div class="container">
       <ol class="breadcrump">
-         <li><a href="">Главная</a></li>
+         <li><a href="{% url 'home' %}">Главная</a></li>
          <li class="active">Закупка семян</li>
       </ol>
       <h1 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
@@ -22,7 +21,6 @@
          <thead>
             <tr>
                <th>Наименование товара</th>
-               <th>Описание товара</th>
                <th>Сорт</th>
                <th>Цена</th>
                <th>Связаться</th>
@@ -31,8 +29,8 @@
          {% for sem in semena %}
          <tbody>
             <tr>
-               <td style="width: 30%;"><a href="{% url 'semena_show' id=sem.id %}">{{sem.name}}</a></td>
-               <td><a href="">Скачать прайс</a></td>
+               <td style="width: 30%;"><a href="{% url 'semena_show' id=sem.id %}" class="btn js-scroll">{{sem.name}}</a></td>
+              
                <td></td>
                <td>от  руб/т</td>
                <td><a href="#enquiryBlock" class="btn js-scroll">Связаться</a></td>

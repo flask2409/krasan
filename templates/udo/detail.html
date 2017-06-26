@@ -1,7 +1,7 @@
 {% extends 'loyalt.html' %}
 {% load staticfiles %}
 {% block content %}
- <div class="banner" style="background-image: url({{MEDIA_URL}}{{udo.image}})"></div>
+ <div class="banner" style="background-image: url({% static 'img/baner.jpg' %})"></div>
       <div class="content__title btcf">
          <div class="container">
             <ol class="breadcrump">
@@ -23,7 +23,6 @@
                </div>
                <h1>{{udo.name}}</h1>
                <p>{{udo.text}}</p>
-               <p><a href="{{MEDIA_URL}}{{udo.file}}" style="width: 20%; float:right;" class="btn js-scroll">Скачать прайс</a></p>
             </div>
          </div>
       </div>

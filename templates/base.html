@@ -16,7 +16,7 @@
            <a href="" style="float: right;" class="header__contact-us header__shop-link">скачать прайс</a>
             <div class="header-actions btcf">
                <div class="header__phone_wrapper">
-                  <img src="{% static '/img/phone_icon.png' %}" alt="">
+                  <img src="{% static 'img/phone_icon.png' %}" alt="">
                   <a href="callto:+78007757764" class="header__phone">+ 7(951)343-08-22</a>
                   <a href="+74957777764" class="header__phone">+ 7(951)343-08-22</a>
                </div>
@@ -35,10 +35,10 @@
       </header>
       <nav class="btcf main_page">
          <div class="container">
-            <a href="" class="main_logo"><img src="{% static '/img/logo.png' %}" alt=""></a>
+            <a href="" class="main_logo"><img src="{% static 'img/logo.png' %}" alt=""></a>
             <ul class="nav">
             <li class="nav_item js-nav-item">
-               <a href="#" class="nav__item_link ">Главная</a>
+               <a href="{% url 'home' %}" class="nav__item_link ">Главная</a>
             </li>
             {% for page  in pages_all %}
                <li class="nav_item js-nav-item">
@@ -51,32 +51,32 @@
          <div class="container" style="width:900px;">
        
             <div class="box box-4">
-               <a href="{% url 'semena_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{categoryi.image}})">
+               <a href="{% url 'semena_cat_list' %}" style="background-image: url({% static 'img/serv_1.jpg' %})">
                <span>Семена</span>
                </a>
             </div>
              <div class="box box-4">
-               <a href="{% url 'pest_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <a href="{% url 'pest_cat_list' %}" style="background-image: url({% static 'img/serv_6.jpg' %})">
                <span>Пестециды</span>
                </a>
             </div>
             <div class="box box-4">
-               <a href="{% url 'udo_cat_list' %}" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <a href="{% url 'udo_cat_list' %}" style="background-image: url({% static 'img/serv_5.jpg' %})">
                <span>Удобрения</span>
                </a>
             </div>
             <div class="box box-4">
-               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <a href="" style="background-image: url({% static 'img/serv_7.jpg' %})">
                <span>Пестнциды</span>
                </a>
             </div>
             <div class="box box-4">
-               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <a href="" style="background-image: url({% static 'img/serv_9.jpg' %})">
                <span>Пестнциды</span>
                </a>
             </div>
             <div class="box box-4">
-               <a href="" style="background-image: url({{MEDIA_URL}}{{category.image}})">
+               <a href="" style="background-image: url({% static 'img/serv_8.jpg' %})">
                <span>Пестнциды</span>
                </a>
             </div>
